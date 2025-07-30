@@ -4,9 +4,10 @@ import CaseStudies from '@/components/CaseStudies'
 import Testimonials from '@/components/Testimonials'
 import TeamSection from '@/components/TeamSection'
 import { getServices } from '@/lib/cosmic'
+import { Service } from '@/types'
 
 export default async function Home() {
-  let services = []
+  let services: Service[] = []
   
   try {
     services = await getServices()
