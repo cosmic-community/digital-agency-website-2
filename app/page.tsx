@@ -1,26 +1,17 @@
 import Hero from '@/components/Hero'
 import Services from '@/components/Services'
-import TeamSection from '@/components/TeamSection'
 import CaseStudies from '@/components/CaseStudies'
 import Testimonials from '@/components/Testimonials'
-import { getServices, getTeamMembers, getCaseStudies, getTestimonials } from '@/lib/cosmic'
+import TeamSection from '@/components/TeamSection'
 
-export default async function Home() {
-  // Fetch all data in parallel for better performance
-  const [services, teamMembers, caseStudies, testimonials] = await Promise.all([
-    getServices(),
-    getTeamMembers(),
-    getCaseStudies(),
-    getTestimonials()
-  ])
-
+export default function Home() {
   return (
-    <div className="min-h-screen">
+    <main>
       <Hero />
-      <Services services={services} />
-      <TeamSection teamMembers={teamMembers} />
-      <CaseStudies caseStudies={caseStudies} />
-      <Testimonials testimonials={testimonials} />
-    </div>
+      <Services />
+      <CaseStudies />
+      <Testimonials />
+      <TeamSection />
+    </main>
   )
 }
