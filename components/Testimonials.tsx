@@ -34,7 +34,7 @@ export default async function Testimonials() {
                     <svg
                       key={i}
                       className={`w-5 h-5 ${
-                        i < parseInt(testimonial.metadata.rating.key) 
+                        i < parseInt(testimonial.metadata.rating?.key || '0') 
                           ? 'text-yellow-400' 
                           : 'text-gray-300'
                       }`}
@@ -45,7 +45,7 @@ export default async function Testimonials() {
                     </svg>
                   ))}
                   <span className="ml-2 text-sm text-gray-600">
-                    {testimonial.metadata.rating.value}
+                    {testimonial.metadata.rating?.value}
                   </span>
                 </div>
               )}
